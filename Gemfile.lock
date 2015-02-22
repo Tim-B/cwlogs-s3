@@ -1,7 +1,11 @@
 PATH
   remote: .
   specs:
-    cwlogs-s3 (0.0.1)
+    cwlogs-s3 (0.0.2)
+      aws-sdk (~> 2.0.27)
+      chronic (~> 0.10.2)
+      chronic_duration (~> 0.10.6)
+      escort (~> 0.4.0)
 
 GEM
   remote: https://rubygems.org/
@@ -33,10 +37,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aws-sdk (~> 2.0.27)
   bundler (~> 1.7)
-  chronic (~> 0.10.2)
-  chronic_duration (~> 0.10.6)
   cwlogs-s3!
-  escort (~> 0.4.0)
   rake (~> 10.0)
