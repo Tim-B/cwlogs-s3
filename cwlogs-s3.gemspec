@@ -7,8 +7,8 @@ Gem::Specification.new do |spec|
   spec.version       = '0.0.1'
   spec.authors       = ["Tim-B"]
   spec.email         = ["tim@galacticcode.com"]
-  spec.summary       = %q{TODO: Write a short summary. Required.}
-  spec.description   = %q{TODO: Write a longer description. Optional.}
+  spec.summary       = %q{Exports logs from CloudWatch logs and uploads them to S3}
+  spec.description   = %q{Exports logs from CloudWatch logs and uploads them to S3}
   spec.homepage      = ""
   spec.license       = "MIT"
 
