@@ -5,6 +5,7 @@ require 'aws-sdk'
 require 'securerandom'
 
 module CWLogsS3
+
   class CopyToS3 < ::Escort::ActionCommand::Base
 
     def execute

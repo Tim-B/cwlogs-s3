@@ -4,7 +4,7 @@ require 'escort'
 require 'chronic'
 require 'chronic_duration'
 
-require './lib/cwlogs-s3_command.rb'
+require './../lib/cwlogs-s3_command.rb'
 
 Escort::App.create do |app|
 
