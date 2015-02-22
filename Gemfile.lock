@@ -1,0 +1,33 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    aws-sdk (2.0.27)
+      aws-sdk-resources (= 2.0.27)
+    aws-sdk-core (2.0.27)
+      builder (~> 3.0)
+      jmespath (~> 1.0)
+      multi_json (~> 1.0)
+      multi_xml (~> 0.5)
+    aws-sdk-resources (2.0.27)
+      aws-sdk-core (= 2.0.27)
+    builder (3.2.2)
+    chronic (0.10.2)
+    chronic_duration (0.10.6)
+      numerizer (~> 0.1.1)
+    escort (0.4.0)
+      nesty
+    jmespath (1.0.2)
+      multi_json (~> 1.0)
+    multi_json (1.10.1)
+    multi_xml (0.5.5)
+    nesty (1.0.2)
+    numerizer (0.1.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  aws-sdk (~> 2.0.27)
+  chronic (~> 0.10.2)
+  chronic_duration (~> 0.10.6)
+  escort (~> 0.4.0)
