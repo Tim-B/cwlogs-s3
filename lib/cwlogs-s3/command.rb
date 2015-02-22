@@ -4,9 +4,9 @@ require 'chronic_duration'
 require 'aws-sdk'
 require 'securerandom'
 
-module CWLogsS3
+module CWLogsToS3
 
-  class CopyToS3 < ::Escort::ActionCommand::Base
+  class Command < ::Escort::ActionCommand::Base
 
     def execute
 
@@ -17,7 +17,7 @@ module CWLogsS3
       period = ChronicDuration.parse(command_options[:period])
       start = Time.at(ending.to_i - period)
 
-      Escort::Logger.output.puts "Exporting from #{start.to_i} to #{ending.to_i}"
+      Escort::Logger.output.puts "Exporting from #{start} to #{ending}"
 
       @cwl = Aws::CloudWatchLogs::Client.new(region: command_options[:region])
       @s3 = Aws::S3::Resource.new(region: command_options[:region])

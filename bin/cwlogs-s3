@@ -4,7 +4,7 @@ require 'escort'
 require 'chronic'
 require 'chronic_duration'
 
-require './../lib/cwlogs-s3_command.rb'
+require 'cwlogs-s3'
 
 Escort::App.create do |app|
 
@@ -23,6 +23,6 @@ Escort::App.create do |app|
   end
 
   app.action do |options, arguments|
-    CWLogsS3::CopyToS3.new(options, arguments).execute
+    CWLogsToS3::Command.new(options, arguments).execute
   end
 end

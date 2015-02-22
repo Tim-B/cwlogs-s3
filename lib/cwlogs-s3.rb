@@ -1,0 +1,1 @@
+require File.dirname(__FILE__) + '/cwlogs-s3/command'
