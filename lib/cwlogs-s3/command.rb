@@ -19,8 +19,8 @@ module CWLogsToS3
       start = Time.at(ending.to_i - period)
 
       s3Uri = URI(command_options[:s3_path])
-      @bucket = s3Uri.host
-      @s3_prefix = s3Uri.path.gsub!(/^\//, '')
+      bucket = s3Uri.host
+      s3_prefix = s3Uri.path
 
       Escort::Logger.output.puts "Exporting from #{start} to #{ending}"
 
@@ -50,6 +50,7 @@ module CWLogsToS3
             log_stream_name: stream,
             start_time: start.to_i * 1000,
             end_time: ending.to_i * 1000,
+            start_from_head: true
         )
 
         resp.each do |log_page|
@@ -69,8 +70,8 @@ module CWLogsToS3
         @event_cnt = @event_cnt + 1
         page_content << event[:message] << "\n"
       end
-      object_name = @s3_prefix + randomise_prefix + '_' + @page_cnt.to_s + '.log'
-      @s3.bucket(@bucket).object(object_name).put(
+      object_name = command_options[:prefix] + randomise_prefix + '_' + @page_cnt.to_s + '.log'
+      @s3.bucket(command_options[:bucket]).object(object_name).put(
         :body => page_content
       )
       Escort::Logger.output.puts "Put #{object_name} to S3."
