@@ -1,5 +1,8 @@
 # cwlogs-s3
 
+**[Click here](http://hipsterdevblog.com/blog/2015/02/24/part-1-exporting-and-analysing-cloudwatch-logs-with-data-pipeline-and-emr/) for
+a blog post on how to use this tool with AWS Data Pipeline.**
+
 Task for exporting CloudWatch logs to S3. Useful for then running logs through EMR for analysis. Designed to be run
  via AWS Data Pipeline.
 
@@ -30,7 +33,7 @@ OPTIONS
                                (e.g. INFO, DEBUG) (default: WARN)
     --error-output-format <s - The format to use when outputting errors (e.g. b
     >                          asic, advanced) (default: basic)
-    --help -h                - Show this messag
+    --help -h                - Show this message
 ```
 
 For example:
