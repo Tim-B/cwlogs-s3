@@ -33,8 +33,13 @@ module CWLogsToS3
           log_group_name: command_options[:group],
       )
 
+      start_ms = start.to_i * 1000
+      end_ms = ending.to_i * 1000
+
       resp.each do |streams|
         streams[:log_streams].each do |stream|
+          next if stream[:last_event_timestamp] < start_ms
+          next if end_ms < stream[:first_event_timestamp]
           @stream_list.push stream[:log_stream_name]
         end
       end
@@ -48,8 +53,8 @@ module CWLogsToS3
         resp = @cwl.get_log_events(
             log_group_name: command_options[:group],
             log_stream_name: stream,
-            start_time: start.to_i * 1000,
-            end_time: ending.to_i * 1000,
+            start_time: start_ms,
+            end_time: end_ms,
             start_from_head: true
         )
 
